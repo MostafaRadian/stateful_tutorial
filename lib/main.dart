@@ -1,7 +1,8 @@
-import 'package:basic_statefull/gesture.dart';
-import 'package:basic_statefull/slider.dart';
+import 'package:basic_statefull/counterprovider.dart';
 import 'package:basic_statefull/toggle.dart';
+import 'package:basic_statefull/toggleprovider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +14,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: SliderWidget(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CounterProvider()),
+        ChangeNotifierProvider(create: (context) => Toggleprovider()),
+      ],
+
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+        home: ToggleSwitch(),
+      ),
     );
   }
 }

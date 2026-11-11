@@ -1,43 +1,49 @@
+import 'package:basic_statefull/counterprovider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class CounterWidget extends StatefulWidget {
-  new({super.key});
-
-  @override
-  State<CounterWidget> createState() => _CounterWidgetState();
-}
-
-class _CounterWidgetState extends State<CounterWidget> {
-  int count = 0;
+class CounterWidget extends StatelessWidget {
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {
+    //var providerObject =Provider.of<CounterProvider>(context, listen: false) ;
+    var providerObject = context.read<CounterProvider>();
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.blueAccent),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("$count"),
+            Consumer<CounterProvider>(
+              builder: (context, value, child) => Text("${value.counter}"),
+            ),
+
             Row(
               mainAxisAlignment: .center,
               children: [
                 FloatingActionButton(
                   onPressed: () {
-                    count++;
-                    setState(() {});
+                    providerObject.increaseCounter();
                   },
                   child: Icon(Icons.add),
                 ),
                 SizedBox(width: 50),
                 FloatingActionButton(
                   onPressed: () {
-                    count--;
-                    setState(() {});
+                    providerObject.decreaseCounter();
                   },
                   child: Icon(Icons.remove),
                 ),
               ],
+            ),
+
+            SizedBox(width: 50),
+            FloatingActionButton(
+              onPressed: () {
+                providerObject.resetCounter();
+              },
+              child: Icon(Icons.refresh),
             ),
           ],
         ),

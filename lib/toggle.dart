@@ -1,24 +1,19 @@
+import 'package:basic_statefull/toggleprovider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class ToggleSwitch extends StatefulWidget {
+class ToggleSwitch extends StatelessWidget {
   const new({super.key});
 
-  @override
-  State<ToggleSwitch> createState() => _ToggleSwitchState();
-}
-
-class _ToggleSwitchState extends State<ToggleSwitch> {
-  bool toggled = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Switch(
-          value: toggled,
-          onChanged: (value) {
-            toggled = value;
-            setState(() {});
-          },
+        child: Consumer<Toggleprovider>(
+          builder: (context, providerObject, child) => Switch(
+            value: providerObject.isToggled,
+            onChanged: (value) => providerObject.toggle(value),
+          ),
         ),
       ),
     );
