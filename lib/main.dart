@@ -1,4 +1,6 @@
 import 'package:basic_statefull/counterprovider.dart';
+import 'package:basic_statefull/shopping/shopping_provider.dart';
+import 'package:basic_statefull/shopping/shopping_screen.dart';
 import 'package:basic_statefull/toggle.dart';
 import 'package:basic_statefull/toggleprovider.dart';
 import 'package:flutter/material.dart';
@@ -18,12 +20,14 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => CounterProvider()),
         ChangeNotifierProvider(create: (context) => Toggleprovider()),
+        ChangeNotifierProvider(create: (context) => ShoppingProvider()),
       ],
 
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-        home: ToggleSwitch(),
+        home: ShoppingHomeScreen(),
       ),
     );
   }
