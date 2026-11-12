@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomepageItem extends StatelessWidget {
-  ProductModel product;
-  HomepageItem({required this.product, super.key});
+  final ProductModel product;
+  const HomepageItem({required this.product, super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:basic_statefull/shopping/homepage_item.dart';
+import 'package:basic_statefull/shopping/shopping_cart_screen.dart';
 import 'package:basic_statefull/shopping/shopping_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +14,9 @@ class ShoppingHomeScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.teal,
-        title: Text("Shoppifiy"),
+        foregroundColor: Colors.white,
+        titleTextStyle: TextStyle(fontSize: 25, fontWeight: .bold),
+        title: Text("Shoppifiy 💰"),
       ),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -26,7 +29,7 @@ class ShoppingHomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Placeholder()),
+          MaterialPageRoute(builder: (context) => CartScreen()),
         ),
         child: Icon(Icons.shopping_cart, color: Colors.teal),
       ),

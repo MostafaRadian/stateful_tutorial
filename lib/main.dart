@@ -1,7 +1,6 @@
 import 'package:basic_statefull/counterprovider.dart';
 import 'package:basic_statefull/shopping/shopping_provider.dart';
 import 'package:basic_statefull/shopping/shopping_screen.dart';
-import 'package:basic_statefull/toggle.dart';
 import 'package:basic_statefull/toggleprovider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

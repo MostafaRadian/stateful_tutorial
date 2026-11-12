@@ -1,6 +1,5 @@
 import 'package:basic_statefull/shopping/product_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ShoppingProvider extends ChangeNotifier {
   List<ProductModel> products = [
